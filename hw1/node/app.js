@@ -1,7 +1,7 @@
 //const fs = require('fs');
 
-let createPhoto = require('./photo');
-let createStudent = require('./creatStudent');
+const createStudent = require('./creatStudent');
+const createPhoto = require('./photo');
 
 //fs.mkdir('./jscx-1800', err => {
 //    console.log('OK')
