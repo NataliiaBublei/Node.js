@@ -1,0 +1,79 @@
+const express = require('express');
+const expHbs = require('express-handlebars');
+const path = require('path');
+
+const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+
+app.use(express.static(path.join(__dirname, 'static')));
+
+const users = [];
+const houses = [];
+
+app.engine('.hbs', expHbs({
+    extname: '.hbs',
+    defaultLayout: null
+}));
+
+app.set('view engine', '.hbs');
+app.set('views', path.join(__dirname, 'static'));
+
+app.get('/', (req, res) => {
+    res.render('index')
+});
+
+app.get('/register', (req, res) => {
+    res.render('register')
+});
+
+app.get('/users', (req, res) => {
+    res.json(users)
+});
+
+app.post('/someone', (req, res) => {
+    const user = req.body;
+
+    user.user_id = users.length + 1;
+    users.push(user);
+    res.redirect('/users')
+});
+
+app.get('/login', (req, res) => {
+    res.render('login')
+});
+
+app.post('/auth', (req, res) => {
+    const {email, password} = req.body;
+
+    const fined = users.find( user => {
+        return user.email === email && user.password === password
+    });
+
+    res.json(fined)
+});
+
+app.get('/addHouse', (req, res) => {
+    res.render('addHouse')
+});
+
+app.get('/houses', (req, res) => {
+    res.json(houses)
+});
+
+app.post('/house', (req, res) => {
+    const house = req.body;
+
+    house.house_id = houses.length + 1;
+    houses.push(house);
+    res.redirect('/houses')
+});
+
+app.all('*', (req, res)  => {
+    res.json('404 NOT FOUND');
+});
+
+app.listen(5000, () => {
+    console.log('Listen 5000')
+});
