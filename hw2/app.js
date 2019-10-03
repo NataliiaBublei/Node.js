@@ -47,9 +47,7 @@ app.get('/login', (req, res) => {
 app.post('/auth', (req, res) => {
     const {email, password} = req.body;
 
-    const finded = users.find( user => {
-        return user.email === email && user.password === password
-    });
+    const finded = users.find( user => user.email === email && user.password === password);
 
     res.json(finded)
 });
@@ -73,9 +71,7 @@ app.post('/house', (req, res) => {
 app.get('/houses/:house_id', (req, res) => {
     const {house_id} = req.params;
 
-    const finded = houses.find( house => {
-        return house.house_id === +house_id
-    });
+    const finded = houses.find( house => house.house_id === +house_id);
 
     res.json(finded)
 });
@@ -83,9 +79,7 @@ app.get('/houses/:house_id', (req, res) => {
 app.get('/users/:user_id', (req, res) => {
     const {user_id} = req.params;
 
-    const finded = users.find( user => {
-        return user.user_id === +user_id
-    });
+    const finded = users.find( user => user.user_id === +user_id);
 
     res.json(finded)
 });
