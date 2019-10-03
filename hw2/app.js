@@ -47,11 +47,11 @@ app.get('/login', (req, res) => {
 app.post('/auth', (req, res) => {
     const {email, password} = req.body;
 
-    const fined = users.find( user => {
+    const finded = users.find( user => {
         return user.email === email && user.password === password
     });
 
-    res.json(fined)
+    res.json(finded)
 });
 
 app.get('/addHouse', (req, res) => {
@@ -70,6 +70,25 @@ app.post('/house', (req, res) => {
     res.redirect('/houses')
 });
 
+app.get('/houses/:house_id', (req, res) => {
+    const {house_id} = req.params;
+
+    const finded = houses.find( house => {
+        return house.house_id === +house_id
+    });
+
+    res.json(finded)
+});
+
+app.get('/users/:user_id', (req, res) => {
+    const {user_id} = req.params;
+
+    const finded = users.find( user => {
+        return user.user_id === +user_id
+    });
+
+    res.json(finded)
+});
 app.all('*', (req, res)  => {
     res.json('404 NOT FOUND');
 });
