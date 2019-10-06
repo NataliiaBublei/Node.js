@@ -35,7 +35,7 @@ app.get('/users', (req, res) => {
 app.post('/someone', (req, res) => {
     const user = req.body;
 
-    user.user_id = users.length + 1;
+    user.userId = users.length + 1;
     users.push(user);
     res.redirect('/users')
 });
@@ -63,7 +63,7 @@ app.get('/houses', (req, res) => {
 app.post('/house', (req, res) => {
     const house = req.body;
 
-    house.house_id = houses.length + 1;
+    house.houseId = houses.length + 1;
     houses.push(house);
     res.redirect('/houses')
 });
@@ -71,7 +71,7 @@ app.post('/house', (req, res) => {
 app.get('/houses/:house_id', (req, res) => {
     const {house_id} = req.params;
 
-    const finded = houses.find(house => house.house_id === +house_id);
+    const finded = houses.find(house => house.houseId === +house_id);
 
     res.json(finded)
 });
@@ -79,7 +79,7 @@ app.get('/houses/:house_id', (req, res) => {
 app.get('/users/:user_id', (req, res) => {
     const {user_id} = req.params;
 
-    const finded = users.find(user => user.user_id === +user_id);
+    const finded = users.find(user => user.userId === +user_id);
 
     res.json(finded)
 });
