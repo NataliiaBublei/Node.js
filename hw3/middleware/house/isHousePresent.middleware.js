@@ -4,6 +4,7 @@ module.exports = async (req, res, next) => {
     try {
         const {house_id} = req.params;
         const query = `SELECT * FROM house WHERE id = ${house_id}`;
+
         const [isHousePresent] = await provider.promise().query(query);
 
         if (!isHousePresent.length) {

@@ -5,5 +5,6 @@ module.exports = async (req, res) => {
     const query = `INSERT INTO user(name, email, password) VALUES(?, ?, ?)`;
 
     await provider.promise().query(query, [name, email, password]);
+
     res.render('main')
 };
