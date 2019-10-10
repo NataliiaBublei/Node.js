@@ -36,9 +36,9 @@ app.get('/users/:user_id', userMiddleware.isUserPresentMiddleware, user.getUserB
 app.post('/editUser', userMiddleware.checkEditUserValidityMiddleware, userMiddleware.isEditUserPresent, user.editUser);
 
 //Houses
+app.post('/houses', houseMiddleware.checkHouseValidityMiddleware, house.addHouse);
 app.get('/houses', houseMiddleware.findAllHousesMiddleware, house.findAllHouses);
 app.get('/houses/:house_id', houseMiddleware.isHousePresentMiddleware, house.getHouseById);
-app.post('/houses', houseMiddleware.checkHouseValidityMiddleware, house.addHouse);
 app.post('/editHouse', houseMiddleware.checkEditHouseValidityMiddleware, houseMiddleware.isEditHousePresent, house.editHouse);
 
 app.all('*', renderPage.page404);
