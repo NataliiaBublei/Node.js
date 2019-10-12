@@ -31,7 +31,7 @@ app.post('/users', userMiddleware.checkUserValidityMiddleware, user.registerUser
 app.post('/auth', userMiddleware.checkUserExistMiddleware, user.userAuth);
 app.get('/users', userMiddleware.findAllUsersMiddleware, user.findAllUsers);
 app.get('/users/:user_id', userMiddleware.isUserPresentByIdMiddleware, user.getUserById);
-app.post(
+app.patch(
     '/users/:user_id',
     userMiddleware.checkUpdateUserValidityMiddleware,
     userMiddleware.isUserPresentByIdMiddleware,
@@ -42,7 +42,7 @@ app.post(
 app.post('/houses', houseMiddleware.checkHouseValidityMiddleware, house.addHouse);
 app.get('/houses', houseMiddleware.findAllHousesMiddleware, house.findAllHouses);
 app.get('/houses/:house_id', houseMiddleware.isHousePresentByIdMiddleware, house.getHouseById);
-app.post(
+app.patch(
     '/houses/:house_id',
     houseMiddleware.checkUpdateHouseValidityMiddleware,
     houseMiddleware.isHousePresentByIdMiddleware,
