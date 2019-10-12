@@ -1,4 +1,4 @@
-const { provider } = require('../../database');
+const {provider} = require('../../database');
 
 module.exports = async (req, res, next) => {
     try {

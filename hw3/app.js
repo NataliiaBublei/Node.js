@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({extended: true}));
 
 app.use(express.static(path.join(__dirname, 'static')));
 
@@ -21,7 +21,7 @@ const {user, house, renderPage} = require('./controllers');
 const {userMiddleware, houseMiddleware} = require('./middleware');
 
 //Render page
-app.get('/',renderPage.main);
+app.get('/', renderPage.main);
 app.get('/register', renderPage.register);
 app.get('/login', renderPage.login);
 app.get('/addHouse', renderPage.addHouse);
