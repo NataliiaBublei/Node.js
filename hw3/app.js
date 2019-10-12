@@ -25,21 +25,29 @@ app.get('/',renderPage.main);
 app.get('/register', renderPage.register);
 app.get('/login', renderPage.login);
 app.get('/addHouse', renderPage.addHouse);
-app.get('/editUser', renderPage.editUserPage);
-app.get('/editHouse', renderPage.editHousePage);
 
 //Users
 app.post('/users', userMiddleware.checkUserValidityMiddleware, user.registerUser);
 app.post('/auth', userMiddleware.checkUserExistMiddleware, user.userAuth);
 app.get('/users', userMiddleware.findAllUsersMiddleware, user.findAllUsers);
-app.get('/users/:user_id', userMiddleware.isUserPresentMiddleware, user.getUserById);
-app.post('/editUser', userMiddleware.checkEditUserValidityMiddleware, userMiddleware.isEditUserPresent, user.editUser);
+app.get('/users/:user_id', userMiddleware.isUserPresentByIdMiddleware, user.getUserById);
+app.post(
+    '/users/:user_id',
+    userMiddleware.checkUpdateUserValidityMiddleware,
+    userMiddleware.isUserPresentByIdMiddleware,
+    user.updateUserById
+);
 
 //Houses
 app.post('/houses', houseMiddleware.checkHouseValidityMiddleware, house.addHouse);
 app.get('/houses', houseMiddleware.findAllHousesMiddleware, house.findAllHouses);
-app.get('/houses/:house_id', houseMiddleware.isHousePresentMiddleware, house.getHouseById);
-app.post('/editHouse', houseMiddleware.checkEditHouseValidityMiddleware, houseMiddleware.isEditHousePresent, house.editHouse);
+app.get('/houses/:house_id', houseMiddleware.isHousePresentByIdMiddleware, house.getHouseById);
+app.post(
+    '/houses/:house_id',
+    houseMiddleware.checkUpdateHouseValidityMiddleware,
+    houseMiddleware.isHousePresentByIdMiddleware,
+    house.updateHouse
+);
 
 app.all('*', renderPage.page404);
 

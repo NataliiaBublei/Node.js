@@ -5,6 +5,7 @@ module.exports = async (req, res) => {
     const query = `INSERT INTO house(square, city, street, price) VALUES(?, ?, ?, ?)`;
 
     await provider.promise().query(query, [square, city, street, price]);
+
     res.render('main')
 };
 

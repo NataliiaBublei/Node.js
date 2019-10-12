@@ -1,13 +1,11 @@
 const checkHouseValidityMiddleware = require('./checkHouseValidity.middleware');
-const  isHousePresentMiddleware = require('./isHousePresent.middleware');
+const  isHousePresentByIdMiddleware = require('./isHousePresentById.middleware');
 const  findAllHousesMiddleware = require('./findAllHouses.middleware');
-const  checkEditHouseValidityMiddleware = require('./checkEditHouseValidity.middleware');
-const  isEditHousePresent= require('./isEditHousePresent.middleware');
+const  checkUpdateHouseValidityMiddleware = require('./checkUpdateHouseValidity.middleware');
 
 module.exports = {
     checkHouseValidityMiddleware,
-    isHousePresentMiddleware,
+    isHousePresentByIdMiddleware,
     findAllHousesMiddleware,
-    checkEditHouseValidityMiddleware,
-    isEditHousePresent
+    checkUpdateHouseValidityMiddleware,
 };

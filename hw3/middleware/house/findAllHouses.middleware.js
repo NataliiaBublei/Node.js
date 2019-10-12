@@ -3,6 +3,7 @@ const { provider } = require('../../database');
 module.exports = async (req, res, next) => {
     try {
         const query = `SELECT * FROM house`;
+
         const [findAllHouses] = await provider.promise().query(query);
 
         if (!findAllHouses.length) {

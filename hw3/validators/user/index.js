@@ -1,7 +1,7 @@
 const newUserValidator= require('./newUser.validator');
-const editUserValidity= require('./editUser.validator');
+const updateUserValidity= require('./updateUser.validator');
 
 module.exports = {
     newUserValidator,
-    editUserValidity
+    updateUserValidity
 };
