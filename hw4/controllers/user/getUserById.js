@@ -1,5 +1,5 @@
 module.exports = (req, res) => {
-    const house = req.house;
+    const user = req.user;
 
-    res.json(house);
+    res.json(user);
 };
