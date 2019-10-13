@@ -45,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
                 },
                 len: {
                     args: 2,
-                    msg: 'Name must be at least 2 characters in length.'
+                    msg: 'Street must be at least 2 characters in length.'
                 }
             }
         },
