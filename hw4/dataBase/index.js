@@ -11,7 +11,7 @@ module.exports = (() => {
             dialect: 'mysql'
         });
 
-        let models = {};
+        const models = {};
 
         function getModels() {
             fs.readdir('./dataBase/models', (err, file) => {
