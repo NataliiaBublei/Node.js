@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true
         },
         square: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DECIMAL,
             allowNull: false,
             validate: {
                 notNull: {
@@ -50,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
             }
         },
         price: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DECIMAL,
             allowNull: false,
             validate: {
                 notNull: {
