@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
                 },
                 isNumeric: {
                     msg: 'Only allow numbers'
+                },
+                min: {
+                    args: [0],
+                    msg: 'Only allow values >= 0'
                 }
             }
         },
@@ -28,8 +32,8 @@ module.exports = (sequelize, DataTypes) => {
                     msg: 'Only allow letters'
                 },
                 len: {
-                    args: 3,
-                    msg: 'City must be at least 3 characters in length.'
+                    args: [3, 40],
+                    msg: 'City must be from 3 to 40 symbols'
                 }
             }
         },
@@ -44,8 +48,8 @@ module.exports = (sequelize, DataTypes) => {
                     msg: 'Only allow letters'
                 },
                 len: {
-                    args: 2,
-                    msg: 'Street must be at least 2 characters in length.'
+                    args: [2, 40],
+                    msg: 'Street must be from 2 to 40 symbols'
                 }
             }
         },
@@ -58,6 +62,10 @@ module.exports = (sequelize, DataTypes) => {
                 },
                 isNumeric: {
                     msg: 'Only allow numbers'
+                },
+                min: {
+                    args: [0],
+                    msg: 'Only allow values >= 0'
                 }
             }
         },

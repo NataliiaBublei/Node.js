@@ -16,8 +16,8 @@ module.exports = (sequelize, DataTypes) => {
                     msg: 'Only allow letters'
                 },
                 len: {
-                    args: 2,
-                    msg: 'Name must be at least 2 characters in length.'
+                    args: [2, 40],
+                    msg: 'Name must be from 2 to 40 symbols'
                 }
             }
         },
@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
                 },
                 notNull: {
                     msg: 'Please enter your email'
-                },
+                }
             }
         },
         password: {
@@ -42,10 +42,11 @@ module.exports = (sequelize, DataTypes) => {
                     msg: 'Please enter your password'
                 },
                 len: {
-                    args: 6,
-                    msg: 'Password must be at least 6 characters in length.'
+                    args: [6, 40],
+                    msg: 'Password must be from 6 to 40 symbols'
                 }
             }
+
         }
     }, {
         tableName: 'user',
