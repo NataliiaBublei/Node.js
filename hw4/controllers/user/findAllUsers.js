@@ -6,10 +6,6 @@ module.exports = async (req, res) => {
 
         const findAllUsers = await UserModel.findAll();
 
-        if (!findAllUsers.length) {
-            throw new Error('There is no user');
-        }
-
         res.json(findAllUsers);
     } catch (e) {
         res.status(400).json(e.message)
