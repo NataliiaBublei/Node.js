@@ -46,7 +46,6 @@ module.exports = (sequelize, DataTypes) => {
                     msg: 'Password must be from 6 to 40 symbols'
                 }
             }
-
         }
     }, {
         tableName: 'user',
