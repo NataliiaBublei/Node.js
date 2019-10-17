@@ -10,7 +10,15 @@ router.patch(
     '/:user_id',
     userMiddleware.isUserPresentByIdMiddleware,
     checkAccessTokenMiddleware,
+    userMiddleware.checkUserIdFromTokenMiddleware,
     user.updateUserById
+);
+router.delete(
+    '/:user_id',
+    userMiddleware.isUserPresentByIdMiddleware,
+    checkAccessTokenMiddleware,
+    userMiddleware.checkUserIdFromTokenMiddleware,
+    user.deleteUser
 );
 
 router.get('/:user_id/houses', user.getUserWithHouseById);

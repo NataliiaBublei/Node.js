@@ -5,7 +5,7 @@ module.exports = async objectToSearch => {
 
     const user = await UserModel.findOne({
         where: objectToSearch,
-        attributes: ['id', 'email']
+        attributes: ['id']
     });
 
     return user && user.dataValues;
