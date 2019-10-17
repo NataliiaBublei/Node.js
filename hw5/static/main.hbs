@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 600px;
+            margin: 100px auto;
+            border: solid 2px grey;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            padding-bottom: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin: 0 auto;
+            width: 250px;
+        }
+
+        button {
+            width: 250px;
+            margin-bottom: 10px;
+            color: #fff;
+            text-decoration: none;
+            user-select: none;
+            background: rgb(212,75,56);
+            padding: .7em 1.5em;
+            outline: none;
+        }
+        button:hover { background: rgb(232,95,76); } /* при наведении курсора мышки */
+        button:active { background: rgb(152,15,0); }
+
+        hr {
+            border: 0;
+            height: 1px;
+            width: 250px;
+            background: #000;
+            background-image: -webkit-linear-gradient(left, #fff, #000, #fff);
+            background-image: -moz-linear-gradient(left, #fff, #000, #fff);
+            background-image: -ms-linear-gradient(left, #fff, #000, #fff);
+            background-image: -o-linear-gradient(left, #fff, #000, #fff);
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Hello:) What do you want to do?</h1>
+    <hr>
+    <form action="/register" method="get">
+        <button>Register</button>
+    </form>
+    <form action="/login" method="get">
+        <button>Login</button>
+    </form>
+    <hr>
+    <form action="/addHouse" method="get">
+        <button>Create House</button>
+    </form>
+</div>
+
+
+
+
+</body>
+</html>
