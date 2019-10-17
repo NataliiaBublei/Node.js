@@ -1,10 +1,10 @@
-const {userService} = require('../../service');
+const {authService} = require('../../service');
 
 module.exports = async (req, res, next) => {
     try {
-        const user = req.body;
+        const {email, password} = req.body;
 
-        const userExist = await userService.getUserAuth(user);
+        const userExist = await authService.getUserAuth(email, password);
 
         if (!userExist) {
             throw new Error(`${user.email} doesn't exist or incorrectly entered data. Please check`)
