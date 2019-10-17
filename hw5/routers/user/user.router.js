@@ -18,7 +18,7 @@ router.delete(
     userMiddleware.isUserPresentByIdMiddleware,
     checkAccessTokenMiddleware,
     userMiddleware.checkUserIdFromTokenMiddleware,
-    user.deleteUser
+    user.deleteUserById
 );
 
 router.get('/:user_id/houses', user.getUserWithHouseById);
