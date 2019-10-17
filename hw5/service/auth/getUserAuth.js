@@ -1,13 +1,10 @@
 const dataBase = require('../../dataBase').getInstance();
 
-module.exports = async (email, password) => {
+module.exports = async objectToSearch => {
     const UserModel = dataBase.getModel('User');
 
     const user = await UserModel.findOne({
-        where:{
-            email,
-            password
-        },
+        where: objectToSearch,
         attributes: ['id', 'email']
     });
 

@@ -1,5 +1,12 @@
-module.exports = (req, res) => {
-    const user = req.user;
+const {tokenazer} = require('../../helpers');
 
-    res.json(user)
+module.exports = (req, res) => {
+    try {
+        const user = req.user;
+        const tokens = tokenazer(user);
+
+        res.json(tokens)
+    } catch (e) {
+        res.json(e.message)
+    }
 };
