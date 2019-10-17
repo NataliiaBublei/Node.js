@@ -20,7 +20,7 @@ app.set('view engine', '.hbs');
 app.set('views', path.join(__dirname, 'static'));
 
 const {renderPage} = require('./controllers');
-const {userRouter, houseRouter, authRouter} = require('./router');
+const {userRouter, houseRouter, authRouter} = require('./routers');
 
 app.use('/users', userRouter);
 app.use('/houses', houseRouter);

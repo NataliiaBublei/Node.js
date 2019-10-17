@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const {houseMiddleware} = require('../../middleware');
+const {houseMiddleware} = require('../../middlewares');
 const {house} = require('../../controllers');
 
 router.post('/', house.createHouse);

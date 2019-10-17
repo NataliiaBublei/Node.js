@@ -1,4 +1,4 @@
-const {houseService} = require('../../service');
+const {houseService} = require('../../services');
 
 module.exports = async (req, res, next) => {
     try {
