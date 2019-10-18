@@ -1,6 +1,6 @@
 const {checkIdEquality} = require('../../validators');
 
-module.exports = async (req, res, next) => {
+module.exports = (req, res, next) => {
     try {
         const {id} = req.user;
         const {user_id} = req.house;
