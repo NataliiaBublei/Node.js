@@ -2,12 +2,11 @@ const {houseService} = require('../../services');
 
 module.exports = async (req, res) => {
     try {
-        const patchHouseObject = req.body;
         const {house_id} = req.params;
 
-        await houseService.updateHouseById(patchHouseObject, house_id);
+        await houseService.deleteHouse(house_id);
 
-        res.redirect(`/houses/${house_id}`);
+        res.json(`Ok. House by id ${house_id} deleted.`);
     } catch (e) {
         res.status(400).json(e.message)
     }

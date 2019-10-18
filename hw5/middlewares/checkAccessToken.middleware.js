@@ -14,6 +14,6 @@ module.exports = (req, res, next) => {
 
         next();
     } catch (e) {
-        res.status(403).json(e.message);
+        res.status(403).json(e.message)
     }
 };

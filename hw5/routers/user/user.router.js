@@ -6,21 +6,15 @@ const {user} = require('../../controllers');
 router.post('/', user.registerUser);
 router.get('/', user.getAllUsers);
 router.get('/:user_id', userMiddleware.isUserPresentByIdMiddleware, user.getUserById);
-router.patch(
-    '/:user_id',
-    userMiddleware.isUserPresentByIdMiddleware,
-    checkAccessTokenMiddleware,
-    userMiddleware.checkUserIdFromTokenMiddleware,
-    user.updateUserById
-);
-router.delete(
-    '/:user_id',
-    userMiddleware.isUserPresentByIdMiddleware,
-    checkAccessTokenMiddleware,
-    userMiddleware.checkUserIdFromTokenMiddleware,
-    user.deleteUserById
-);
+router.get('/:user_id/houses', userMiddleware.isUserPresentByIdMiddleware, user.getUserWithHouseById);
 
-router.get('/:user_id/houses', user.getUserWithHouseById);
+router.use(
+    "/:user_id",
+    checkAccessTokenMiddleware,
+    userMiddleware.checkUserIdFromTokenMiddleware,
+    userMiddleware.isUserPresentByIdMiddleware
+);
+router.patch('/:user_id', user.updateUserById);
+router.delete('/:user_id', user.deleteUserById);
 
 module.exports = router;

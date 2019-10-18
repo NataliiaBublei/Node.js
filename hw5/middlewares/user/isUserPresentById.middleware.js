@@ -12,7 +12,7 @@ module.exports = async (req, res, next) => {
 
         req.user = userById;
 
-        next()
+        next();
     } catch (e) {
         res.status(400).json(e.message)
     }

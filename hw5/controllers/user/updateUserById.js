@@ -5,10 +5,10 @@ module.exports = async (req, res) => {
         const patchUserObject = req.body;
         const {user_id} = req.params;
 
-        await userService.updateUserById(patchUserObject, {id: user_id});
+        await userService.updateUserById(patchUserObject, user_id);
 
         res.redirect(`/users/${user_id}`);
     } catch (e) {
-        res.json(e.message);
+        res.json(e.message)
     }
 };

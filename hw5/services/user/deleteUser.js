@@ -4,6 +4,8 @@ module.exports = async userId=> {
     const UserModel = dataBase.getModel('User');
 
     await UserModel.destroy({
-        where: userId
+        where: {
+            id: userId
+        }
     })
 };
