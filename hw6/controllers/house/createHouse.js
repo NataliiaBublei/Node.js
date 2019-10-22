@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
 
             const path = `${photoDir}/${photoName}`;
 
-            await filesService.uploadPhotosForHouse({house_id: newHouse.id, path: path});
+            await filesService.uploadPhotosForHouse({house_id: newHouse.id, path});
         }
 
         res.json(houseToCreate);
