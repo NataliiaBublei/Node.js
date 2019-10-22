@@ -1,6 +1,5 @@
 const fs = require('fs-extra');
 const {resolve} = require('path');
-const uuid = require('uuid').v1();
 
 const {houseService, filesService} = require('../../services');
 
@@ -19,15 +18,15 @@ module.exports = async (req, res) => {
 
         await fs.mkdirSync(resolve(appRoot, 'static', photoDir), {recursive: true});
 
-        for (let i = 0; i < photos.length; i++) {
-            const photoExtension = photos[i].name.split('.').pop();
+        const asyncUploader = photos.map(async photo => {
+            const photoExtension = photo.name.split('.').pop();
+            const photoName = `${Date.now()}.${photoExtension}`;
 
-            const photoName = `${uuid}.${photoExtension}`;
-
-            await photos[i].mv(resolve(appRoot, 'static', photoDir, photoName));
-
+            await photo.mv(resolve(appRoot, 'static', photoDir, photoName));
             await filesService.uploadPhotosForHouse({house_id: newHouse.id, path: `${photoDir}/${photoName}`});
-        }
+        });
+
+        await Promise.all(asyncUploader);
 
         res.json(houseToCreate);
     } catch (e) {
