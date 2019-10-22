@@ -26,9 +26,7 @@ module.exports = async (req, res) => {
 
             await photos[i].mv(resolve(appRoot, 'static', photoDir, photoName));
 
-            const path = `${photoDir}/${photoName}`;
-
-            await filesService.uploadPhotosForHouse({house_id: newHouse.id, path});
+            await filesService.uploadPhotosForHouse({house_id: newHouse.id, path: `${photoDir}/${photoName}`});
         }
 
         res.json(houseToCreate);
