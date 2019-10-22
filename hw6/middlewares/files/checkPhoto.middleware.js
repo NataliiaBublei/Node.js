@@ -7,6 +7,7 @@ module.exports = (req, res, next) => {
         if (!req.files) {
             next()
         }
+
         const photos = Object.values(req.files);
 
         for (let i = 0; i < photos.length; i++) {
