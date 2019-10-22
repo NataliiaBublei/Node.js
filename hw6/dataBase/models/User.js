@@ -46,6 +46,13 @@ module.exports = (sequelize, DataTypes) => {
                     msg: 'Password must be from 6 to 40 symbols'
                 }
             }
+        },
+        photo_path: {
+            type: DataTypes.STRING,
+        },
+        created_at: {
+            type: DataTypes.DATE,
+            defaultValue: sequelize.fn('now')
         }
     }, {
         tableName: 'user',

@@ -1,9 +1,14 @@
 const router = require('express').Router();
 
-const {houseMiddleware, authMiddleware} = require('../../middlewares');
+const {houseMiddleware, authMiddleware, filesMiddleware} = require('../../middlewares');
 const {house} = require('../../controllers');
 
-router.post('/', authMiddleware.checkAccessTokenMiddleware, house.createHouse);
+router.post(
+    '/',
+    authMiddleware.checkAccessTokenMiddleware,
+    filesMiddleware.checkPhotoMiddleware,
+    house.createHouse
+);
 router.get('/', house.getAllHouses);
 router.get('/:house_id', houseMiddleware.isHousePresentByIdMiddleware, house.getHouseById);
 

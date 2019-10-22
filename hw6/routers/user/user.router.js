@@ -1,9 +1,14 @@
 const router = require('express').Router();
 
-const {userMiddleware, authMiddleware} = require('../../middlewares');
+const {userMiddleware, authMiddleware, filesMiddleware} = require('../../middlewares');
 const {user} = require('../../controllers');
 
-router.post('/', user.registerUser);
+router.post(
+    '/',
+    filesMiddleware.checkPhotoMiddleware,
+    filesMiddleware.checkCountPhotoMiddleware,
+    user.registerUser
+);
 router.get('/', user.getAllUsers);
 router.get('/:user_id', userMiddleware.isUserPresentByIdMiddleware, user.getUserById);
 router.get('/:user_id/houses', userMiddleware.isUserPresentByIdMiddleware, user.getUserWithHouseById);

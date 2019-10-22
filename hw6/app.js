@@ -1,15 +1,18 @@
 const express = require('express');
 const expHbs = require('express-handlebars');
 const path = require('path');
+const fileUpload = require('express-fileupload');
 
 const app = express();
 const dataBase = require('./dataBase').getInstance();
 dataBase.setModels();
 
+app.use(fileUpload());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.use(express.static(path.join(__dirname, 'static')));
+global.appRoot = __dirname;
 
 app.engine('.hbs', expHbs({
     extname: '.hbs',

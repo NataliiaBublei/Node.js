@@ -78,6 +78,13 @@ module.exports = (sequelize, DataTypes) => {
                     msg: 'Only allow values >= 0'
                 }
             }
+        },
+        created_at: {
+            type: DataTypes.DATE,
+            defaultValue: sequelize.fn('now')
+        },
+        updated_at: {
+            type: DataTypes.DATE
         }
     }, {
         tableName: 'house',
@@ -85,6 +92,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     const User = sequelize.import('./User');
+
     House.belongsTo(User, {foreignKey: 'user_id'});
 
     return House;
